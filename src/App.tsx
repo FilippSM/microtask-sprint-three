@@ -1,17 +1,19 @@
 import React from 'react';
 import styles from "./components/Site.module.css";
-import { PageOne } from './components/pages/PageOne';
-import { PageTwo } from './components/pages/PageTwo';
-import { PageThree } from './components/pages/PageThree';
+
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import { Error404 } from './components/pages/Error404';
 import styled from 'styled-components';
 import { S } from './components/pages/_styles';
+import { Adidas } from './components/pages/Adidas';
+import { Puma } from './components/pages/Puma';
+import { Abibas } from './components/pages/Abibas';
+import { Model } from './components/pages/Model';
 
 const PATH = {
-    PAGE1: '/page1',
-    PAGE2: '/page2',
-    PAGE3: '/page3',
+    PAGE1: '/ADIDAS',
+    PAGE2: '/PUMA',
+    PAGE3: '/ABIBAS',
     PAGERROR: '/error404',
 }
 
@@ -26,30 +28,33 @@ function App() {
                         <NavLink
                             to={PATH.PAGE1}
                         >
-                            Page 1
+                            ADIDAS
                         </NavLink>
                     </S.NavWrapper>
                     <S.NavWrapper>
                         <NavLink
                             to={PATH.PAGE2}
                         >
-                            Page 2
+                            PUMA
                         </NavLink>
                     </S.NavWrapper>
                     <S.NavWrapper>
                         <NavLink
                             to={PATH.PAGE3}
                         >
-                            Page 3
+                            ABIBAS
                         </NavLink>
                     </S.NavWrapper>
                 </div>
                 <div className={styles.content}>
                     <Routes>
-                        <Route path="/" element={<Navigate to="/page1" />} />
-                        <Route path="/page1" element={<PageOne />} />
-                        <Route path="/page2" element={<PageTwo />} />
-                        <Route path="/page3" element={<PageThree />} />
+                        <Route path="/" element={<Navigate to="/ADIDAS" />} />
+                        <Route path="/ADIDAS" element={<Adidas />} />
+                        <Route path="/PUMA" element={<Puma />} />
+                        <Route path="/ABIBAS" element={<Abibas />} />
+                        <Route path="/ADIDAS/:id" element={<Model />} />
+
+
                         <Route path={PATH.PAGERROR} element={<Error404 />} />
                         <Route path="*" element={<Error404 />} />
 
