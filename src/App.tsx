@@ -11,9 +11,9 @@ import { Abibas } from './components/pages/Abibas';
 import { Model } from './components/pages/Model';
 
 const PATH = {
-    PAGE1: '/ADIDAS',
-    PAGE2: '/PUMA',
-    PAGE3: '/ABIBAS',
+    PAGE1: '/adidas',
+    PAGE2: '/puma',
+    PAGE3: '/abibas',
     PAGERROR: '/error404',
 }
 
@@ -48,11 +48,12 @@ function App() {
                 </div>
                 <div className={styles.content}>
                     <Routes>
-                        <Route path="/" element={<Navigate to="/ADIDAS" />} />
-                        <Route path="/ADIDAS" element={<Adidas />} />
-                        <Route path="/PUMA" element={<Puma />} />
-                        <Route path="/ABIBAS" element={<Abibas />} />
-                        <Route path="/ADIDAS/:id" element={<Model />} />
+                        <Route path="/" element={<Navigate to="/adidas" />} />
+                        <Route path="/adidas" element={<Adidas />} />
+                        <Route path="/puma" element={<Puma />} />
+                        <Route path="/bibas" element={<Abibas />} />
+                        {/* <Route path="/ADIDAS/:id" element={<Model />} /> */}
+                        <Route path="/:model/:id" element={<Model />} />
 
 
                         <Route path={PATH.PAGERROR} element={<Error404 />} />
