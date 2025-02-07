@@ -57,6 +57,7 @@ function App() {
 
                         <Route path={PATH.PAGERROR} element={<Error404 />} />
                         <Route path="*" element={<Error404 />} />
+                     {/*    <Route path="/ADIDAS/*" element={<Error404 />} /> */}
 
                       {/*   <Route path="/error404" element={<Error404 />} />
                         <Route path="/*" element={<Navigate to={PATH.PAGERROR} />} /> */}

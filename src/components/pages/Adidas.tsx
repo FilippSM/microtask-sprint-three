@@ -28,7 +28,7 @@ export const adidasArr: AdidasItem[] = [
         picture: adidasModel2
     },
     {
-        id: 3,
+        id: 2,
         model: 'ADIDAS SUPER SUPERSKI',
         collection: 'new collection333',
         price: '300400$',
