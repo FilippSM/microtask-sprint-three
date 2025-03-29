@@ -1,68 +1,53 @@
-import { useParams } from "react-router-dom"
-import { adidasArr, AdidasItem } from "./Adidas"
-import { Error404 } from "./Error404"
-import { pumaArr, PumasItem } from "./Puma"
+import {adidasArr, AdidasItem} from "./Adidas";
+import {useParams} from "react-router-dom";
+import {pumaArr, PumaItem} from "./Puma";
 
-type CrossModels = {
-    [key: string]: (AdidasItem[] | PumasItem[])
+
+
+type CrossModels= {
+    [key: string]: (AdidasItem[] | PumaItem[]);
 }
 
-const crossModel: CrossModels = {
-    adidas: adidasArr,
+const crossModels: CrossModels={
+    adidas:adidasArr,
     puma: pumaArr
 }
 
 export const Model = () => {
-    /* const params = useParams() */
-    const { model, id } = useParams<{model: string, id: string}>()
-  /*   const currentModel = adidasArr.find(el => el.id === Number(id)) */
+    // const params=useParams()
+    const { model, id } = useParams();
+    console.log(model)
+        //const currentModel=adidasArr.find(el=>el.id===Number(id))
     const currentModel = model
-    ? crossModel[model].find(el => el.id === Number(id))
-    : null
+        ? crossModels[model].find((el) => el.id === Number(id))
+        : null;
 
-    return (
-
-        <div style={{ textAlign: 'center' }}>
+      return (
+        <div style={{textAlign:'center'}}>
             {currentModel
-                ? <>
+                ?<>
                     <h2>{currentModel?.model}</h2>
-                    <h3>{currentModel?.collection}</h3>
-                    <h4>{currentModel?.price}</h4>
+                    <h4>{currentModel?.collection}</h4>
+                    <h3>{currentModel?.price}</h3>
                     <img
                         src={currentModel?.picture}
                         alt={currentModel?.model}
-                        style={{ width: '200px', height: 'auto', marginRight: '10px' }}
+                        style={{width: '600px', height: 'auto', marginRight: '10px'}}
                     />
                 </>
-                : <h2>Такой модели не существует</h2>
-
+                :   <h2>Модель отсутствует</h2>
             }
 
+
+
+        {/*    <h2>{adidasArr[Number(params.id)].model}</h2>*/}
+        {/*    <h4>{adidasArr[Number(params.id)].collection}</h4>*/}
+        {/*    <h3>{adidasArr[Number(params.id)].price}</h3>*/}
+        {/*    <img*/}
+        {/*        src={adidasArr[Number(params.id)].picture}*/}
+        {/*        alt={adidasArr[Number(params.id)].model}*/}
+        {/*        style={{width: '600px', height: 'auto', marginRight: '10px'}}*/}
+        {/*    />*/}
         </div>
-    )
-
-
-    /*  const params = useParams()
-     console.log(params)
-     return (
- 
-         <div style={{ textAlign: 'center' }}>
-             {adidasArr[Number(params.id)]
-                 ? <>
-                     <h2>{adidasArr[Number(params.id)].model}</h2>
-                     <h3>{adidasArr[Number(params.id)].collection}</h3>
-                     <h4>{adidasArr[Number(params.id)].price}</h4>
-                     <img
-                         src={adidasArr[Number(params.id)].picture}
-                         alt={adidasArr[Number(params.id)].model}
-                         style={{ width: '200px', height: 'auto', marginRight: '10px' }}
-                     />
-                 </>
-                 : <Error404 />
- 
-             }
- 
-         
-     )
-             </div> */
-}
+);
+};
