@@ -25,6 +25,9 @@ function App() {
 
                 </div>
                 <div className={styles.content}>
+                    <div className={styles.HorizontalNavigation}>
+                    <a href="/adidas">Перейти на главную страницу</a>
+                    </div>
                     <Outlet/>
        {/*              <Routes>
                         <Route path={'/'} element={<Navigate to={PATH.PAGE1}/>}/>
